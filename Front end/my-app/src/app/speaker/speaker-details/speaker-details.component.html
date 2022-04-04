@@ -1,0 +1,20 @@
+<p-dialog header="Speaker Details"  position="top" [(visible)]="display">
+       
+    <div class="d-flex p-3 flex-column align-items-center">
+        <p-image src="{{ speaker?.image }}" alt="Image" width="250"></p-image>
+        <h3>{{speaker?.fullname}}</h3>
+        <p>Address: {{speaker?.address}}</p>
+        <p>Age: {{speaker?.age}}</p>
+        <p>IsMarried?: {{speaker?.isMarried}}</p>
+        <p>hourRate: {{speaker?.hourRate |currency}}</p>
+        <p>Rating: {{speaker?.rating}}</p>
+    </div>
+</p-dialog>
+
+<div class="d-flex justify-content-evenly">
+    <button
+      class="btn btn-primary w-100 mx-2"
+      (click)="showSpeaker()"
+    >
+      Details
+    </button>

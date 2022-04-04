@@ -1,0 +1,91 @@
+<!-- Table for Speakers Data -->
+
+<div class="container"><br><br>
+  
+  <table class="table"  *ngIf="speakers?.length">
+    <thead class="table-dark">
+
+      <tr>
+        <td><h6>Search</h6></td>
+        <td>
+          <input type="text" fullname="" id="" [(ngModel)]="query" />
+        </td>
+        
+        <td>
+          <a class="btn btn-primary col-12 " [routerLink]="['/speakers','add']" >
+            Add New Speaker
+            </a>  
+        </td><td></td>
+        <td><button
+          class="btn btn-outline-warning col-12"
+          (click)="toggleImage($event.target)"
+        >
+          Hide Image
+        </button></td>
+        <td>
+          <button
+          class="btn btn-outline-warning col-12"
+          (click)="load()"
+        >
+          load
+        </button>
+        </td><td></td>
+       
+
+      </tr>
+      <tr>
+        <th>Id</th>
+        <th>Full name</th>
+        <th>Address</th>
+        <th>Age</th>
+        <th *ngIf="showAndHideImage">image</th>
+        <th *ngIf="false">marital status</th>
+        <th *ngIf="false">hour Rate</th>
+        <th *ngIf="false">birth date</th>
+        <th>Rating</th>
+        <th>operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+        let item of speakers | arraySplice: query"
+        appHighlight="#DFDFDF"
+        dcolor="white"
+      >
+        <td>{{ item._id }}</td>
+        <td>{{ item.fullname }}</td>
+        <td>{{ item.address }}</td>
+        <td>{{ item.age }}</td>
+        <td *ngIf="showAndHideImage">
+          <img src="{{ item.image }}" [title]="item.image" width="100px" />
+        </td>
+        <td *ngIf="false">{{ item.birthDate | date: "MM, dd, yyyy" }}</td>
+        <td *ngIf="false">{{ item.hourRate | currency }}</td>
+        <td *ngIf="false">{{ item.isMarried ? "Married" : "Single" }}</td>
+
+        <td>
+          <p-rating
+            [cancel]="false"
+            [readonly]="true"
+            [(ngModel)]="item.rating"
+          ></p-rating>
+        </td>
+        <td>
+          <div class="d-flex justify-content-evenly">
+            <button
+              class="btn btn-danger w-100 mx-2"
+              (click)="deleteSpeaker(item._id)"
+            >
+              Delete
+            </button>
+            <app-speaker-edit [id]="item._id"></app-speaker-edit>
+            <app-speaker-details [id]="item._id" ></app-speaker-details>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+<br> 

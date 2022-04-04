@@ -1,0 +1,96 @@
+<p-dialog header="Update Speaker" [(visible)]="display">
+  <div class="grid p-fluid">
+    <div class="col-12 md:col-4">
+      <div class="p-inputgroup mb-3">
+        fullname  :
+        <input
+          [(ngModel)]="speaker.fullname"
+          (ngModelChange)="(speaker?.fullname)"
+
+          type="text"
+          pInputText
+          placeholder="fullname"
+        />
+      </div>
+
+      <div class="p-inputgroup mb-3">
+        Address  :
+        <input
+          [(ngModel)]="speaker.address"
+          (ngModelChange)="(speaker?.address)"
+          type="text"
+          pInputText
+          placeholder="address"
+        />
+      </div>
+      <div class="p-inputgroup mb-3">
+        Age  :
+        <input
+          [(ngModel)]="speaker.age"
+          (ngModelChange)="(speaker?.age)"
+          type="text"
+          pInputText
+          placeholder="age"
+        />
+      </div>
+
+      <div class="p-inputgroup mb-3">
+        image  :
+        <input
+          [(ngModel)]="speaker.image"
+          (ngModelChange)="(speaker?.image)"
+          type="text"
+          pInputText
+          placeholder="image"
+        />
+      </div>
+
+      <div class="p-inputgroup mb-3">
+        
+          hourRate  :
+        <input
+          type="text"
+          pInputText
+          placeholder="hourRate"
+          [(ngModel)]="speaker.hourRate"
+          (ngModelChange)="(speaker?.hourRate)"
+
+          
+        />
+      </div>
+
+      <div class="p-inputgroup mb-3">
+        <div class="p-inputgroup mb-3">
+          isMarried   :
+          <input
+            #tmarried
+            class="form-check-input"
+            [(ngModel)]="speaker.isMarried"
+            (ngModelChange)="(speaker?.isMarried)"
+
+            id="isMarried"
+            type="checkbox"
+          />
+        </div>
+      </div>      
+      <div class="p-inputgroup mb-3">
+       rating    :
+        <p-rating [cancel]="false" (ngModelChange)="(speaker?.rating)"[(ngModel)]="speaker.rating"></p-rating>
+      </div>
+
+      <p-button
+        label="Update"
+        (click)="updateSpeaker()"
+      ></p-button>
+    </div>
+  </div>
+</p-dialog>
+
+<div class="d-flex justify-content-evenly">
+  <button
+    class="btn btn-success w-100 mx-2"
+    (click)="editSpeaker()"
+  >
+    update
+  </button>
+

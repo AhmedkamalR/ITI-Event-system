@@ -1,0 +1,100 @@
+<div class="container d-flex align-items-center flex-column my-5 bordered">
+  <div class="m-2 col-6">
+    <div class="form-group">
+      <label for="fullname">Full Name</label>
+      <input
+        #tfullname
+        class="form-control"
+        [(ngModel)]="speaker.fullname"
+        id="fullname"
+        type="text"
+      />
+    </div>
+    <div class="form-group">
+      <label for="email" req>Email</label>
+      <input
+        #temail
+        class="form-control"
+        [(ngModel)]="speaker.email"
+        id="email"
+        type="text"
+      />
+    </div>
+    <div class="form-group">
+      <label for="address" req>Address</label>
+      <input
+        #taddress
+        class="form-control"
+        [(ngModel)]="speaker.address"
+        id="address"
+        type="text"
+      />
+    </div>
+    <div class="form-group">
+      <label for="age" req>Age</label>
+      <input
+        #tage
+        class="form-control"
+        [(ngModel)]="speaker.age"
+        id="age"
+        type="text"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="image">image</label>
+      <input
+      class="form-control"
+      type="file"
+      (input)="onFileChange($event)"
+      />
+    </div>
+
+  
+
+    <div class="form-group">
+      <label for="birthDate">birth Date</label>
+      <input
+        #tdate
+        class="form-control"
+        [(ngModel)]="speaker.birthDate"
+        id="birthDate"
+        type="date"
+      />
+    </div>
+    <div class="form-group">
+      <label for="image">hour Rate</label>
+      <input
+        #thour
+        class="form-control"
+        [(ngModel)]="speaker.hourRate"
+        id="hourRate"
+        type="text"
+      />
+    </div>
+    <div class="form-group">
+      <label class="form-check-label" for="isMarried">isMarried</label>
+      <input
+        #tmarried
+        class="form-check-input"
+        [(ngModel)]="speaker.isMarried"
+        id="isMarried"
+        type="checkbox"
+      />
+    </div>
+    <div class="form-group">
+      <label for="rating">Star Rating</label>
+   
+      <p-rating [cancel]="false" [(ngModel)]="speaker.rating"></p-rating>
+
+    </div>   
+  </div>
+
+  <button
+  class="btn btn-success my-4 col-6"
+  (click)="addSpeaker()"
+  *ngIf="!updateFlag"
+>
+  Add Speaker
+</button>
+</div>

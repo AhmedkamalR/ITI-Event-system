@@ -1,0 +1,20 @@
+<p-dialog header="student Details"  position="top" [(visible)]="display">
+    
+    
+    <div class="d-flex p-3 flex-column align-items-center">
+        <p-image src="{{ Student?.image }}" alt="Image" width="250"></p-image>
+        <h3>{{Student?.fullname}}</h3>
+        <p>Address: {{Student?.address}}</p>
+        <p>Age: {{Student?.age}}</p>
+        <p>depatment: {{Student?.department}}</p>
+        <p>GBA: {{Student?.GBA}}</p>
+    </div>
+</p-dialog>
+
+<div class="d-flex justify-content-evenly">
+    <button
+      class="btn btn-primary w-100 mx-2"
+      (click)="showStudent()"
+    >
+      Details
+    </button>
